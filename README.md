@@ -20,7 +20,19 @@ Features
 $ composer create-project -sdev samsonasik/ci4-vue
 ```
 
-*2.* Run PHP Development server
+*2.* Setup environment
+
+Set CI_ENVIRONMENT, base url, index page in your .env file (If you don't have a .env file, you can copy first from env file: cp env .env first):
+
+```bash
+# file .env
+CI_ENVIRONMENT = development
+
+app.baseURL    = 'http://localhost:8080'
+app.indexPage  = ''
+```
+
+*3.* Run PHP Development server
 
 ```php
 $ cd ci4-vue

@@ -3,7 +3,6 @@
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
-use Config\Services;
 
 class XMLHttpRequest implements FilterInterface
 {
