@@ -21,11 +21,8 @@ class XMLHttpRequest implements FilterInterface
 			return;
 		}
 
-		if (! $isAjax)
-		{
-			echo service('renderer')->render('layout');
-			exit(0);
-		}
+		echo service('renderer')->render('layout');
+		exit(0);
     }
 
     public function after(RequestInterface $request, ResponseInterface $response)
