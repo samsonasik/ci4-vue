@@ -92,7 +92,7 @@ In `app/Views/layout.php`, we have a `ENVIRONMENT` check to use `js/app.js` when
 <?php $isDevelopment = ENVIRONMENT === 'development'; ?>
 
 // ...
-    <script src="<?php echo $isDevelopment
+    <script src="<?php echo site_url($isDevelopment
             ? '/js/app.js'
             : (
                 // when after run webpack, allow to use bundled js
@@ -100,7 +100,7 @@ In `app/Views/layout.php`, we have a `ENVIRONMENT` check to use `js/app.js` when
                 file_exists(ROOTPATH . 'public/js/dist/bundle.js')
                     ? '/js/dist/bundle.js'
                     : '/js/app.js'
-            ); ?>" type="module"></script>
+            )) ?>" type="module"></script>
 // ...
 ```
 
