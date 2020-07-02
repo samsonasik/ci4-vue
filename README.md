@@ -22,7 +22,7 @@ Features
 *1.* Run composer create-project command:
 
 ```bash
-$ composer create-project samsonasik/ci4-vue
+composer create-project samsonasik/ci4-vue
 ```
 
 *2.* Setup environment
@@ -40,8 +40,8 @@ app.indexPage  = ''
 *3.* Run PHP Development server
 
 ```php
-$ cd ci4-vue
-$ php spark serve
+cd ci4-vue
+php spark serve
 ```
 
 *3.* Open web browser http://localhost:8080
@@ -51,14 +51,14 @@ $ php spark serve
 For deploy to production purpose, it has `webpack.config.js` in root directory that when we run `webpack` command, we can get `public/js/dist/bundle.js` after run it. If you don't have a `webpack` installed yet in your system, you can install nodejs and install `webpack` and `webpack-cli`:
 
 ```bash
-$ sudo npm install -g webpack
-$ sudo npm install -g webpack-cli
+sudo npm install -g webpack
+sudo npm install -g webpack-cli
 ```
 
 So, we can run:
 
 ```bash
-$ webpack
+webpack
 
 Hash: 8e63a0daee1be975aeb3
 Version: webpack 4.43.0
