@@ -22,7 +22,7 @@ Features
 *1.* Run composer create-project command:
 
 ```bash
-$ composer create-project -sdev samsonasik/ci4-vue
+$ composer create-project samsonasik/ci4-vue
 ```
 
 *2.* Setup environment
