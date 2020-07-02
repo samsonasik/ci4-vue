@@ -13,6 +13,7 @@ Features
 - SPA application with Vue Router with cached pages after visited.
 - Using server side template from CodeIgniter 4, compiled with `Vue.compile()` in Vue.js component's `render()`.
 - Using Vuex for state management library, combo with sessionStorage on portfolio page.
+- Webpack support for [production](#production)
 
 ## Setup
 
