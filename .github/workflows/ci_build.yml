@@ -29,3 +29,13 @@ jobs:
         run: "composer install"
       - name: "Run test suite"
         run: "composer test"
+      - if: matrix.php-versions == '7.2'
+        name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./build/logs/clover.xml
+          flags: tests
+          name: codecov-umbrella
+          yml: ./codecov.yml
+          fail_ci_if_error: true
