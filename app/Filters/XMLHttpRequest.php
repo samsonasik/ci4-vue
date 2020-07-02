@@ -10,19 +10,14 @@ class XMLHttpRequest implements FilterInterface
     public function before(RequestInterface $request)
     {
 		$isAPI  = strpos($request->detectPath(), 'api') === 0;
-		if ($isAPI)
-		{
-			return;
-		}
-
 		$isAjax = $request->hasHeader('X-Requested-With') && $request->getHeader('X-Requested-With')->getValue() === 'XMLHttpRequest';
-		if ($isAjax)
+
+		if ($isAPI || $isAjax)
 		{
 			return;
 		}
 
-		echo service('renderer')->render('layout');
-		exit(0);
+		return service('response')->setBody(service('renderer')->render('layout'));
     }
 
     public function after(RequestInterface $request, ResponseInterface $response)
