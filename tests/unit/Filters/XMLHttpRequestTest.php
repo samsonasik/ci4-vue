@@ -26,6 +26,21 @@ class XMLHttpRequestTest extends TestCase
 		$this->assertNull($this->filter->before($request->reveal()));
 	}
 
+	public function testBeforeOnIsAjax()
+	{
+		$request = $this->prophesize(IncomingRequest::class);
+		$request->detectPath()->willReturn('/');
+		$request->hasHeader('X-Requested-With')->willReturn(true);
+		$request->getHeader('X-Requested-With')->willReturn(new class {
+			public function getValue()
+			{
+				return 'XMLHttpRequest';
+			}
+		});
+
+		$this->assertNull($this->filter->before($request->reveal()));
+	}
+
 	public function testAfter()
 	{
 		$filter = new XMLHttpRequest();
