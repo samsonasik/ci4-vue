@@ -1,12 +1,13 @@
 import createPage from './create-page.js';
 import portfolio from './portfolio.js';
+import store      from './store.js';
 
 const routes = [
-    { path: '/', component: createPage('home') },
-    { path: '/about', component: createPage('about') },
-    { path: '/contact', component: createPage('contact') },
-    { path: '/portfolio', component: portfolio },
-    { path: '*', component: createPage('404') }
+    { path: '/', component: createPage('home'), meta: { title: 'Home'}  },
+    { path: '/about', component: createPage('about'), meta: { title: 'About'}  },
+    { path: '/contact', component: createPage('contact'), meta: { title: 'Contact'}  },
+    { path: '/portfolio', component: portfolio, meta: { title: 'Portfolio'}  },
+    { path: '*', component: createPage('404'), meta: { title: '404 Not Found'} }
 ];
 
 const router = new VueRouter({
@@ -15,4 +16,7 @@ const router = new VueRouter({
     mode: 'history',
     linkExactActiveClass: "active"
 });
-const app    = new Vue({router}).$mount('#root')
+
+router.afterEach(to => document.title = to.meta.title);
+
+new Vue({router, store: store}).$mount('#root')

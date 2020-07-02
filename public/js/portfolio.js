@@ -3,21 +3,29 @@ import createPage from './create-page.js';
 let portfolio = createPage(
     'portfolio',
     {
-        portfolio : []
+        portfolio : [
+            {
+                title : 'loading...',
+                image : '',
+                link  : '',
+            }
+        ]
     },
     {
-        search: function (e) {
-            let keyword = e.target.value;
+        search: function (e = null) {
+            let keyword = e !== null
+                ? e.target.value
+                : '';
 
-            if (typeof store.state.portfolio[keyword] !== 'undefined') {
-                this.portfolio = store.state.portfolio[keyword];
+            if (typeof this.$store.state.portfolio.portfolio[keyword] !== 'undefined') {
+                this.portfolio = this.$store.state.portfolio.portfolio[keyword];
 
                 return;
             }
 
-            if (sessionStorage.getItem('search-' + keyword)) {
-                portfolio     = JSON.parse(sessionStorage.getItem('search-' + keyword));
-                store.commit('search', { keyword: keyword, value: portfolio });
+            if (sessionStorage.getItem('search-portfolio-' + keyword)) {
+                let portfolio  = JSON.parse(sessionStorage.getItem('search-portfolio-' + keyword));
+                this.$store.commit('portfolio/search', { keyword: keyword, value: portfolio });
                 this.portfolio = portfolio;
 
                 return;
@@ -30,16 +38,18 @@ let portfolio = createPage(
                         {
                             method: 'GET',
                             headers: {
-                                'Content-Type': 'application/json',
                                 'Accept': 'application/json',
                             }
                         }
                     ).then(response =>  resolve(response.json()));
                 }).then(result => this.portfolio = result);
 
-                store.commit('search', { keyword: keyword, value: this.portfolio });
+                this.$store.commit('portfolio/search', { keyword: keyword, value: this.portfolio });
             })();
         }
+    },
+    function () {
+        this.$nextTick(() => this.search());
     }
 );
 

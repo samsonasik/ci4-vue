@@ -1,4 +1,4 @@
-let createPage = (name, data = {}, methods = {}) => {
+let createPage = (name, data = {}, methods = {}, updated = () => {}) => {
     return Vue.component('page-' + name, {
         data: () => Object.assign({ content: 'Loading...'}, data),
         methods: methods,
@@ -21,7 +21,8 @@ let createPage = (name, data = {}, methods = {}) => {
             }
 
             return c(Vue.compile('<div>' + this.content + '</div>'));
-        }
+        },
+        updated: updated
     });
 }
 
