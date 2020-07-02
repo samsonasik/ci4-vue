@@ -1,9 +1,17 @@
 {
-	"name": "codeigniter4/appstarter",
+	"name": "samsonasik/ci4-vue",
 	"type": "project",
-	"description": "CodeIgniter4 starter app",
+	"description": "CodeIgniter4 starter app with Vue.js Integration",
 	"homepage": "https://codeigniter.com",
 	"license": "MIT",
+	"authors": [
+        {
+            "name": "Abdul Malik Ikhsan",
+            "email": "samsonasik@gmail.com",
+            "homepage": "http://samsonasik.wordpress.com",
+            "role": "Developer"
+        }
+    ],
 	"require": {
 		"php": ">=7.2",
 		"codeigniter4/framework": "^4"
