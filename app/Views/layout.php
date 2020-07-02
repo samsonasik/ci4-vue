@@ -23,6 +23,6 @@
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.3.2/dist/vue-router.js"></script>
     <script src="https://unpkg.com/vuex@3.4.0/dist/vuex.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js" type="module"></script>
   </body>
 </html>
