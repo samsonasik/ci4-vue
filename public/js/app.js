@@ -1,10 +1,11 @@
+import about      from './about.js';
 import createPage from './create-page.js';
 import portfolio  from './portfolio.js';
 import store      from './store.js';
 
 const routes = [
     { path: '/', component: createPage('home'), meta: { title: 'Home'}  },
-    { path: '/about', component: createPage('about'), meta: { title: 'About'}  },
+    { path: '/about', component: about, meta: { title: 'About'}  },
     { path: '/contact', component: createPage('contact'), meta: { title: 'Contact'}  },
     { path: '/portfolio', component: portfolio, meta: { title: 'Portfolio'}  },
     { path: '*', component: createPage('404'), meta: { title: '404 Not Found'} }
