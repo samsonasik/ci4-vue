@@ -1,6 +1,10 @@
 <html>
   <head>
-
+    <style type="text/css">
+    .active {
+      color: red;
+    }
+    </style>
   </head>
   <body>
     <div id="root">
