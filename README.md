@@ -25,26 +25,35 @@ Features
 composer create-project samsonasik/ci4-vue
 ```
 
-*2.* Setup environment
-
-Set CI_ENVIRONMENT, base url, index page in your .env file (If you don't have a .env file, you can copy first from env file: cp env .env first):
+*2.* Copy file `ci4-vue/env` to `ci4-vue/.env`:
 
 ```bash
-# file .env
+cp ci4-vue/env ci4-vue/.env
+```
+
+*3.* Set environment and app configuration
+
+Open `ci4-vue/.env` and set `CI_ENVIRONMENT`, `app.baseURL`, `app.indexPage`:
+
+```bash
+# file ci4-vue/.env
 CI_ENVIRONMENT = development
 
 app.baseURL    = 'http://localhost:8080'
 app.indexPage  = ''
 ```
 
-*3.* Run PHP Development server
+*4.* Run PHP Development server
 
 ```php
+# go to ci4-vue directory
 cd ci4-vue
+
+# run php development server inside ci4-vue directory
 php spark serve
 ```
 
-*3.* Open web browser http://localhost:8080
+*5.* Open web browser http://localhost:8080
 
 ## Production
 
