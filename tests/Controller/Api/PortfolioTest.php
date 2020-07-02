@@ -16,5 +16,36 @@ class PortfolioTest extends CIUnitTestCase
 						->execute('index');
 
 		$this->assertTrue($result->isOK());
+		$this->assertTrue($result->see('website'));
+	}
+
+	public function testIndexSearchPortfolioFound()
+	{
+		$request = service('request');
+		$request->setMethod('get');
+		$request->setGlobal('get', [
+			'keyword' => 'website',
+		]);
+
+		$result = $this->withRequest($request)
+					   ->controller(Portfolio::class)
+					   ->execute('index');
+
+		$this->assertTrue($result->see('website'));
+	}
+
+	public function testIndexSearchPortfolioNotFound()
+	{
+		$request = service('request');
+		$request->setMethod('get');
+		$request->setGlobal('get', [
+			'keyword' => 'website-abcdef',
+		]);
+
+		$result = $this->withRequest($request)
+					   ->controller(Portfolio::class)
+					   ->execute('index');
+
+		$this->assertFalse($result->see('website-abcdef'));
 	}
 }
