@@ -1,5 +1,7 @@
 # Example Using Vue.js in CodeIgniter 4 application
 
+[![Downloads](https://poser.pugx.org/samsonasik/ci4-vue/downloads)](https://packagist.org/packages/samsonasik/ci4-vue)
+
 Introduction
 ------------
 
