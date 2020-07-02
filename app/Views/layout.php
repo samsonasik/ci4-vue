@@ -20,9 +20,18 @@
 
     </div>
 
+    <?php $isDevelopment = ENVIRONMENT === 'development'; ?>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.3.2/dist/vue-router.js"></script>
     <script src="https://unpkg.com/vuex@3.4.0/dist/vuex.js"></script>
-    <script src="/js/app.js" type="module"></script>
+    <script src="<?php echo $isDevelopment
+            ? '/js/app.js'
+            : (
+                // when after run webpack, allow to use bundled js
+                // fallback to use /js/app.js when not
+                file_exists(ROOTPATH . 'public/js/dist/bundle.js')
+                    ? '/js/dist/bundle.js'
+                    : '/js/app.js'
+            ); ?>" type="module"></script>
   </body>
 </html>
