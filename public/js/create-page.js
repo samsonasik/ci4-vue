@@ -15,10 +15,6 @@ let createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.comp
         })).then(result => this.content = result);
     },
     render : function (c) {
-        if (this.content == '') {
-            return;
-        }
-
         return c(Vue.compile('<div>' + this.content + '</div>'));
     },
     updated: updated
