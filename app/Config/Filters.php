@@ -1,5 +1,6 @@
 <?php namespace Config;
 
+use App\Filters\NotFoundPage;
 use App\Filters\XMLHttpRequest;
 use CodeIgniter\Config\BaseConfig;
 
@@ -11,6 +12,7 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'notfoundpage'   => NotFoundPage::class,
 		'xmlHttpRequest' => XMLHttpRequest::class,
 	];
 
@@ -19,6 +21,7 @@ class Filters extends BaseConfig
 		'before' => [
 			//'honeypot'
 			// 'csrf',
+			'notfoundpage',
 			'xmlHttpRequest',
 		],
 		'after'  => [
