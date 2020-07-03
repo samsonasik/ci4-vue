@@ -5,6 +5,7 @@
     <!-- Paths to check -->
     <file>app/Controllers</file>
     <file>app/Filters</file>
+    <file>tests</file>
 
     <rule ref="Squiz.Commenting.ClassComment">
         <exclude name="Squiz.Commenting.ClassComment"/>

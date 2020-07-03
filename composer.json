@@ -19,10 +19,12 @@
 	"require-dev": {
 		"codeigniter4/codeigniter4-standard": "^1.0.1",
 		"mikey179/vfsstream": "1.6.*",
-		"phpunit/phpunit": "8.5.*"
+		"phpunit/phpunit": "8.5.*",
+		"squizlabs/php_codesniffer": "^3.1"
 	},
 	"autoload-dev": {
 		"psr-4": {
+			"CodeIgniter4\\": "vendor/codeigniter4/codeigniter4-standard/CodeIgniter4/",
 			"Tests\\": "tests",
 			"Tests\\Support\\": "tests/_support"
 		}
@@ -31,7 +33,9 @@
 		"test": "phpunit",
 		"post-update-cmd": [
 			"@composer dump-autoload"
-		]
+		],
+		"cs-check": "phpcs",
+        "cs-fix": "phpcbf"
 	},
 	"support": {
 		"forum": "http://forum.codeigniter.com/",

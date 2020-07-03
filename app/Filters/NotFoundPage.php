@@ -7,15 +7,15 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class NotFoundPage implements FilterInterface
 {
-    public function before(RequestInterface $request)
-    {
-        if (ENVIRONMENT !== 'development' && ! class_exists(service('router')->controllerName()))
-       {
-            throw PageNotFoundException::forPageNotFound('Page Not Found');
-       }
-    }
+	public function before(RequestInterface $request)
+	{
+		if (ENVIRONMENT !== 'development' && ! class_exists(service('router')->controllerName()))
+		{
+			throw PageNotFoundException::forPageNotFound('Page Not Found');
+		}
+	}
 
-    public function after(RequestInterface $request, ResponseInterface $response)
-    {
-    }
+	public function after(RequestInterface $request, ResponseInterface $response)
+	{
+	}
 }
