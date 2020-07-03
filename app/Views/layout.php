@@ -30,7 +30,7 @@
     <script src="https://unpkg.com/vue-router@3.3.2/dist/vue-router.<?php echo ! $isDevelopment ? 'min.' : '' ?>js"></script>
     <script src="https://unpkg.com/vuex@3.4.0/dist/vuex.<?php echo ! $isDevelopment ? 'min.' : '' ?>js"></script>
 
-    <script src="<?php echo site_url($isDevelopment
+    <script src="<?php echo base_url($isDevelopment
             ? '/js/app.js'
             : (
                 // when after run webpack, allow to use bundled js
