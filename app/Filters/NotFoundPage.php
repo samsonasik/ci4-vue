@@ -9,7 +9,7 @@ class NotFoundPage implements FilterInterface
 {
     public function before(RequestInterface $request)
     {
-       if (! class_exists(service('router')->controllerName()))
+        if (ENVIRONMENT !== 'development' && ! class_exists(service('router')->controllerName()))
        {
             throw PageNotFoundException::forPageNotFound('Page Not Found');
        }
