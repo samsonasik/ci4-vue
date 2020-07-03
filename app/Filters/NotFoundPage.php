@@ -11,7 +11,7 @@ class NotFoundPage implements FilterInterface
     {
        if (! class_exists(service('router')->controllerName()))
        {
-            throw new PageNotFoundException();
+            throw PageNotFoundException::forPageNotFound('Page Not Found');
        }
     }
 
