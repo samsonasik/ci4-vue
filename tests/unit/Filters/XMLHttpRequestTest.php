@@ -21,7 +21,7 @@ class XMLHttpRequestTest extends TestCase
 	{
 		$request = $this->prophesize(IncomingRequest::class);
 		$request->detectPath()->willReturn('api/portfolio');
-		$request->hasHeader('X-Requested-With')->willReturn(false);
+		$request->isAJAX()->willReturn(false);
 
 		$this->assertNull($this->filter->before($request->reveal()));
 	}
@@ -30,13 +30,7 @@ class XMLHttpRequestTest extends TestCase
 	{
 		$request = $this->prophesize(IncomingRequest::class);
 		$request->detectPath()->willReturn('/');
-		$request->hasHeader('X-Requested-With')->willReturn(true);
-		$request->getHeader('X-Requested-With')->willReturn(new class {
-			public function getValue()
-			{
-				return 'XMLHttpRequest';
-			}
-		});
+		$request->isAJAX()->willReturn(true);
 
 		$this->assertNull($this->filter->before($request->reveal()));
 	}
