@@ -8,7 +8,7 @@ class XMLHttpRequest implements FilterInterface
 {
 	public function before(RequestInterface $request)
 	{
-		$isAPI  = strpos($request->detectPath(), 'api') === 0;
+		$isAPI  = $request->hasHeader('Accept') && $request->getHeader('Accept')->getValue() === 'application/json';
 		$isAjax = $request->isAJAX();
 
 		if ($isAPI || $isAjax)

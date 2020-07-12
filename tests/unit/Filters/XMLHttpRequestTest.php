@@ -20,7 +20,13 @@ class XMLHttpRequestTest extends TestCase
 	public function testBeforeOnIsAPI()
 	{
 		$request = $this->prophesize(IncomingRequest::class);
-		$request->detectPath()->willReturn('api/portfolio');
+		$request->hasHeader('Accept')->willReturn(true);
+		$request->getHeader('Accept')->willReturn(new class {
+			public function getValue()
+			{
+				return 'application/json';
+			}
+		});
 		$request->isAJAX()->willReturn(false);
 
 		$this->assertNull($this->filter->before($request->reveal()));
@@ -29,7 +35,13 @@ class XMLHttpRequestTest extends TestCase
 	public function testBeforeOnIsAjax()
 	{
 		$request = $this->prophesize(IncomingRequest::class);
-		$request->detectPath()->willReturn('/');
+		$request->hasHeader('Accept')->willReturn(true);
+		$request->getHeader('Accept')->willReturn(new class {
+			public function getValue()
+			{
+				return 'text/html';
+			}
+		});
 		$request->isAJAX()->willReturn(true);
 
 		$this->assertNull($this->filter->before($request->reveal()));
