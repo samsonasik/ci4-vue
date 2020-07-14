@@ -16,7 +16,7 @@ class XMLHttpRequest implements FilterInterface
 			return;
 		}
 
-		return service('response')->setBody(service('renderer')->render('layout'));
+		return service('response')->setBody(view('layout'));
 	}
 
 	public function after(RequestInterface $request, ResponseInterface $response)
