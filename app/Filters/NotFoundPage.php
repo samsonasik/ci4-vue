@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class NotFoundPage implements FilterInterface
 {
-	public function before(RequestInterface $request)
+	public function before(RequestInterface $request, $arguments = null)
 	{
 		if (ENVIRONMENT !== 'development' && ! class_exists(service('router')->controllerName()))
 		{
@@ -15,7 +15,7 @@ class NotFoundPage implements FilterInterface
 		}
 	}
 
-	public function after(RequestInterface $request, ResponseInterface $response)
+	public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
 	{
 	}
 }

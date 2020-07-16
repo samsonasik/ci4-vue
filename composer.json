@@ -14,7 +14,7 @@
 	],
 	"require": {
 		"php": ">=7.2",
-		"codeigniter4/framework": "^4"
+		"codeigniter4/framework": "^4.0.4"
 	},
 	"require-dev": {
 		"codeigniter4/codeigniter4-standard": "^1.0.1",

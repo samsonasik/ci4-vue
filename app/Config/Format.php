@@ -40,6 +40,20 @@ class Format extends BaseConfig
 		'text/xml'         => \CodeIgniter\Format\XMLFormatter::class,
 	];
 
+	/*
+	|--------------------------------------------------------------------------
+	| Formatters Options
+	|--------------------------------------------------------------------------
+	|
+	| Additional Options to adjust default formatters behaviour.
+	| For each mime type, list the additional options that should be used.
+	|
+	*/
+	public $formatterOptions  = [
+		'application/json' => JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES,
+		'application/xml'  => 0,
+		'text/xml'         => 0,
+	];
 	//--------------------------------------------------------------------
 
 	/**

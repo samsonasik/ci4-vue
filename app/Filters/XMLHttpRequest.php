@@ -6,7 +6,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class XMLHttpRequest implements FilterInterface
 {
-	public function before(RequestInterface $request)
+	public function before(RequestInterface $request, $arguments = null)
 	{
 		$isAPI  = $request->hasHeader('Accept') && $request->getHeader('Accept')->getValue() === 'application/json';
 		$isAjax = $request->isAJAX();
@@ -19,7 +19,7 @@ class XMLHttpRequest implements FilterInterface
 		return service('response')->setBody(view('layout'));
 	}
 
-	public function after(RequestInterface $request, ResponseInterface $response)
+	public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
 	{
 	}
 }
