@@ -32,7 +32,10 @@ jobs:
       - name: "Run test suite"
         run: "composer test"
       - name: "Run mutation test"
-        run: "composer mutation-test"
+        run: "vendor/bin/infection"
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
       - if: matrix.php-versions == '7.2'
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

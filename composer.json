@@ -50,7 +50,6 @@
 		],
 		"cs-check": "phpcs",
 		"cs-fix": "phpcbf",
-		"mutation-test": "infection",
 		"test": "phpunit"
 	},
 	"support": {
