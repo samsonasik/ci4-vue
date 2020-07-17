@@ -19,6 +19,9 @@
         "text": "infection.log"
     },
     "mutators": {
-        "@default": true
+        "@default": true,
+        "badge": {
+            "branch": "master"
+        }
     }
 }
