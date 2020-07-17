@@ -104,7 +104,7 @@ class PortfolioTest extends CIUnitTestCase
 		$request = service('request');
 		$request->setMethod('get');
 		$request->setGlobal('get', [
-			'keyword' => 'website-abcdef'
+			'keyword' => 'website-abcdef',
 		]);
 
 		$result = $this->withRequest($request)
