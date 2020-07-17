@@ -18,9 +18,15 @@
 	},
 	"require-dev": {
 		"codeigniter4/codeigniter4-standard": "^1.0.1",
+		"infection/infection": "^0.16.4",
 		"mikey179/vfsstream": "1.6.*",
 		"phpunit/phpunit": "8.5.*",
 		"squizlabs/php_codesniffer": "^3.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app"
+		}
 	},
 	"autoload-dev": {
 		"psr-4": {
@@ -35,7 +41,8 @@
 		],
 		"cs-check": "phpcs",
 		"cs-fix": "phpcbf",
-		"test": "phpunit"
+		"test": "phpunit",
+		"mutation-test": "infection"
 	},
 	"support": {
 		"forum": "http://forum.codeigniter.com/",

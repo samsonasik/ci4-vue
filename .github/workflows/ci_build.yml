@@ -31,6 +31,8 @@ jobs:
         run: "composer cs-check"
       - name: "Run test suite"
         run: "composer test"
+      - name: "Run mutation test"
+        run: "composer mutation-test"
       - if: matrix.php-versions == '7.2'
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
