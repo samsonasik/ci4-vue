@@ -2,19 +2,19 @@
 
 namespace Tests\unit\Filters;
 
-use App\Filters\XMLHttpRequest;
+use App\Filters\LayoutUsage;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use PHPUnit\Framework\TestCase;
 
-class XMLHttpRequestTest extends TestCase
+class LayoutUsageTest extends TestCase
 {
 	private $filter;
 
 	protected function setUp() : void
 	{
-		$this->filter = new XMLHttpRequest();
+		$this->filter = new LayoutUsage();
 	}
 
 	public function testBeforeOnIsAPI()
@@ -49,7 +49,7 @@ class XMLHttpRequestTest extends TestCase
 
 	public function testAfter()
 	{
-		$filter = new XMLHttpRequest();
+		$filter = new LayoutUsage();
 
 		$this->assertNull(
 			$filter->after(
