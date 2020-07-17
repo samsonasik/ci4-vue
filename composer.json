@@ -22,6 +22,17 @@
 		"phpunit/phpunit": "8.5.*",
 		"squizlabs/php_codesniffer": "^3.1"
 	},
+	"config": {
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app"
+		}
+	},
 	"autoload-dev": {
 		"psr-4": {
 			"CodeIgniter4\\": "vendor/codeigniter4/codeigniter4-standard/CodeIgniter4/",

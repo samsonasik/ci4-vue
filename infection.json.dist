@@ -1,0 +1,27 @@
+{
+    "source": {
+        "directories": [
+            "app"
+        ],
+        "excludes": [
+            "Config",
+            "Database",
+            "Helpers",
+            "Language",
+            "Libraries",
+            "Models",
+            "ThirdParty",
+            "Views",
+            "Controllers/BaseController.php"
+        ]
+    },
+    "logs": {
+        "text": "infection.log",
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "mutators": {
+        "@default": true
+    }
+}

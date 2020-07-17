@@ -1,6 +1,7 @@
 # Example Using Vue.js in CodeIgniter 4 application
 
 ![ci build](https://github.com/samsonasik/ci4-vue/workflows/ci%20build/badge.svg)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fsamsonasik%2Fci4-vue%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/samsonasik/ci4-vue/master)
 [![Code Coverage](https://codecov.io/gh/samsonasik/ci4-vue/branch/master/graph/badge.svg)](https://codecov.io/gh/samsonasik/ci4-vue)
 [![Downloads](https://poser.pugx.org/samsonasik/ci4-vue/downloads)](https://packagist.org/packages/samsonasik/ci4-vue)
 
