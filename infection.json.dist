@@ -16,12 +16,12 @@
         ]
     },
     "logs": {
-        "text": "infection.log"
-    },
-    "mutators": {
-        "@default": true,
+        "text": "infection.log",
         "badge": {
             "branch": "master"
         }
+    },
+    "mutators": {
+        "@default": true
     }
 }
