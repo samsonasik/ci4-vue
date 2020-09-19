@@ -5,7 +5,9 @@
 [![Code Coverage](https://codecov.io/gh/samsonasik/ci4-vue/branch/master/graph/badge.svg)](https://codecov.io/gh/samsonasik/ci4-vue)
 [![Downloads](https://poser.pugx.org/samsonasik/ci4-vue/downloads)](https://packagist.org/packages/samsonasik/ci4-vue)
 
-> Version ~0.0.17 is for Vue 2 usage in CodeIgniter 4 application
+> Version ^0.1.0 is for Vue 3 usage in CodeIgniter 4 application
+
+> For Vue 2 usage in CodeIgniter 4 application, you can use version ~0.0.17
 
 Introduction
 ------------
