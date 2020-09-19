@@ -1,5 +1,15 @@
-let createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.component('page-' + name, {
-    data: () => Object.assign({ content: 'Loading...'}, data),
+const { h, compile } = Vue;
+
+const createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.defineComponent({
+    name: 'page-' + name,
+    data: () => Object.assign(
+        {
+            content: 'Loading...'
+        },
+        {
+            data
+        }
+    ),
     methods: methods,
     mounted () {
         (new Promise( (resolve) => {
@@ -14,8 +24,9 @@ let createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.comp
             ).then(response =>  resolve(response.text()));
         })).then(result => this.content = result);
     },
-    render : function (c) {
-        return c(Vue.compile('<div>' + this.content + '</div>'));
+    render() {
+        const $this = this;
+        return h(compile(`${this.content}`), { $this });
     },
     updated: updated
 });

@@ -16,6 +16,6 @@ class AboutTest extends CIUnitTestCase
 						->execute('index');
 
 		$this->assertTrue($result->isOK());
-		$this->assertTrue($result->see('I\'m a web developer. My name is {{ this.$parent.name }}'));
+		$this->assertTrue($result->see('I\'m a web developer. My name is {{ $this.data.name }}'));
 	}
 }

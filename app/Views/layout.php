@@ -4,6 +4,9 @@
     .active {
       color: red;
     }
+    header a {
+      padding-right: 5px;
+    }
     </style>
   </head>
   <body>
@@ -17,18 +20,20 @@
         </header>
 
         <div id="app" style="padding-top: 10px;">
-            <keep-alive>
-               <router-view></router-view>
-            </keep-alive>
+            <router-view v-slot="{ Component }">
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </router-view>
         </div>
 
     </div>
 
     <?php $isDevelopment = ENVIRONMENT === 'development'; ?>
 
-    <script src="https://unpkg.com/vue@2.6.11/dist/vue.<?php echo ! $isDevelopment ? 'min.' : '' ?>js"></script>
-    <script src="https://unpkg.com/vue-router@3.3.2/dist/vue-router.<?php echo ! $isDevelopment ? 'min.' : '' ?>js"></script>
-    <script src="https://unpkg.com/vuex@3.4.0/dist/vuex.<?php echo ! $isDevelopment ? 'min.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.0-beta.10/dist/vue-router.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vuex@4.0.0-beta.4/dist/vuex.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
 
     <script src="<?php echo base_url($isDevelopment
             ? '/js/app.js'
