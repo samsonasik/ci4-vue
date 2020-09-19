@@ -7,7 +7,7 @@
 
 > Version ^0.1.0 is for Vue 3 usage in CodeIgniter 4 application
 
-> For Vue 2 usage in CodeIgniter 4 application, you can use version ~0.0.17
+> For Vue 2 usage in CodeIgniter 4 application, you can use version [~0.0.17](https://github.com/samsonasik/ci4-vue/tree/0.0.x)
 
 Introduction
 ------------
