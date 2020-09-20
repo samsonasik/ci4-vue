@@ -1,1 +1,1 @@
-I'm a web developer. My name is {{ $this.data.name }}
+I'm a web developer. My name is {{ $this.name }}

@@ -6,9 +6,7 @@ const createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.de
         {
             content: 'Loading...'
         },
-        {
-            data
-        }
+        data
     ),
     methods: methods,
     mounted () {

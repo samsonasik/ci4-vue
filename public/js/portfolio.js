@@ -18,7 +18,7 @@ let portfolio = createPage(
                 : '';
 
             if (typeof this.$store.state.portfolio.portfolio[keyword] !== 'undefined') {
-                this.data.portfolio = this.$store.state.portfolio.portfolio[keyword];
+                this.portfolio = this.$store.state.portfolio.portfolio[keyword];
 
                 return;
             }
@@ -26,7 +26,7 @@ let portfolio = createPage(
             if (sessionStorage.getItem('search-portfolio-' + keyword)) {
                 let portfolio  = JSON.parse(sessionStorage.getItem('search-portfolio-' + keyword));
                 this.$store.commit('portfolio/search', { keyword: keyword, value: portfolio });
-                this.data.portfolio = portfolio;
+                this.portfolio = portfolio;
 
                 return;
             }
@@ -42,9 +42,9 @@ let portfolio = createPage(
                             }
                         }
                     ).then(response =>  resolve(response.json()));
-                }).then(result => this.data.portfolio = result);
+                }).then(result => this.portfolio = result);
 
-                this.$store.commit('portfolio/search', { keyword: keyword, value: this.data.portfolio });
+                this.$store.commit('portfolio/search', { keyword: keyword, value: this.portfolio });
             })();
         }
     },

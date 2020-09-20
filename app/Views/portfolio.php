@@ -7,11 +7,11 @@ Keyword: <input type="keyword" id="keyword" v-on:input="$this.search"/> <br /><b
         <th>Link</th>
     </tr>
 
-    <tr v-if="$this.data.portfolio.length == 0">
+    <tr v-if="$this.portfolio.length == 0">
         <td colspan="3" class="text-center">No portfolio found.</td>
     </tr>
 
-    <tr v-for="loop in $this.data.portfolio" :key="loop.id">
+    <tr v-for="loop in $this.portfolio" :key="loop.id">
         <td>{{ loop.title }}</td>
         <td><img :src="`${ loop.image }`" /></td>
         <td><a v-bind:href="`${ loop.link }`">{{ loop.link }}</a></td>
