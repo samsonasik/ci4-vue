@@ -12,16 +12,7 @@ class NotFoundPageRequestTest extends CIUnitTestCase
 
 	public function testLoad404Template()
 	{
-		$routes = [
-			[
-				'get',
-				'404',
-				'404::index',
-			],
-		];
-
 		$this->expectException(PageNotFoundException::class);
-		$this->withRoutes($routes)
-			->get('404');
+		$this->call('get', '/404');
 	}
 }
