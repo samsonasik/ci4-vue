@@ -30,7 +30,7 @@ jobs:
       - name: "CS Check"
         run: "composer cs-check"
       - name: "Run test suite"
-        run: "composer test"
+        run: "XDEBUG_MODE=coverage vendor/bin/phpunit"
       - if: matrix.php-versions == '7.4'
         name: Run mutation test
         env:
@@ -38,7 +38,7 @@ jobs:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: |
           composer require --dev infection/infection
-          vendor/bin/infection
+          XDEBUG_MODE=coverage vendor/bin/infection
       - if: matrix.php-versions == '7.4'
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
