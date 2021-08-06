@@ -15,10 +15,12 @@ class LayoutUsage implements FilterInterface
 		$isAPI  = $request->hasHeader('Accept') && $request->header('Accept')->getValue() === 'application/json';
 		$isAjax = $request->isAJAX();
 
+		// @codeCoverageIgnoreStart
 		if ($isAPI || $isAjax)
 		{
-			return; // @codeCoverageIgnore
+			return;
 		}
+		// @codeCoverageIgnoreEnd
 
 		return service('response')->setBody(view('layout'));
 	}
