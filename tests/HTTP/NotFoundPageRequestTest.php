@@ -3,10 +3,13 @@
 namespace Tests\HTTP;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
-use CodeIgniter\Test\FeatureTestCase;
+use CodeIgniter\Test\CIUnitTestCase;
+use CodeIgniter\Test\FeatureTestTrait;
 
-class NotFoundPageRequestTest extends FeatureTestCase
+class NotFoundPageRequestTest extends CIUnitTestCase
 {
+	use FeatureTestTrait;
+
 	public function testLoad404Template()
 	{
 		$routes = [

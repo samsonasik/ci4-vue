@@ -4,11 +4,11 @@ namespace Tests\Controller\Api;
 
 use App\Controllers\Api\Portfolio;
 use CodeIgniter\Test\CIUnitTestCase;
-use CodeIgniter\Test\ControllerTester;
+use CodeIgniter\Test\ControllerTestTrait;
 
 class PortfolioTest extends CIUnitTestCase
 {
-	use ControllerTester;
+	use ControllerTestTrait;
 
 	public function testIndex()
 	{

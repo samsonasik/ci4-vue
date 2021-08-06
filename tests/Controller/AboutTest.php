@@ -4,11 +4,11 @@ namespace Tests\Controller;
 
 use App\Controllers\About;
 use CodeIgniter\Test\CIUnitTestCase;
-use CodeIgniter\Test\ControllerTester;
+use CodeIgniter\Test\ControllerTestTrait;
 
 class AboutTest extends CIUnitTestCase
 {
-	use ControllerTester;
+	use ControllerTestTrait;
 
 	public function testIndex()
 	{
