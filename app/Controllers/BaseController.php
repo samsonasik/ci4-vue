@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use Psr\Log\LoggerInterface;
 /**
  * Class BaseController
  *
@@ -32,9 +35,9 @@ class BaseController extends Controller
 	 * Constructor.
 	 */
 	public function initController(
-		\CodeIgniter\HTTP\RequestInterface $request,
-		\CodeIgniter\HTTP\ResponseInterface $response,
-		\Psr\Log\LoggerInterface $logger
+		RequestInterface $request,
+		ResponseInterface $response,
+		LoggerInterface $logger
 	)
 	{
 		// Do Not Edit This Line

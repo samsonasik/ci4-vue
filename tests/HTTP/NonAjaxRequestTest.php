@@ -11,7 +11,7 @@ class NonAjaxRequestTest extends CIUnitTestCase
 
 	public function testRenderLayout()
 	{
-		$result = $this->call('get', '/');
-		$this->assertMatchesRegularExpression('/<html>/', $result->getBody());
+		$testResponse = $this->call('get', '/');
+		$this->assertMatchesRegularExpression('/<html>/', $testResponse->getBody());
 	}
 }

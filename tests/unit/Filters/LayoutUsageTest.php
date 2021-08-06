@@ -52,10 +52,10 @@ class LayoutUsageTest extends TestCase
 
 	public function testAfter()
 	{
-		$filter = new LayoutUsage();
+		$layoutUsage = new LayoutUsage();
 
 		$this->assertNull(
-			$filter->after(
+			$layoutUsage->after(
 				$this->prophesize(RequestInterface::class)->reveal(),
 				$this->prophesize(ResponseInterface::class)->reveal()
 			)

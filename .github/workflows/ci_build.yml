@@ -29,6 +29,8 @@ jobs:
         run: "composer install"
       - name: "CS Check"
         run: "composer cs-check"
+      - name: "Code analyze"
+        run: "bin/rector process --dry-run"
       - name: "Run test suite"
         run: "XDEBUG_MODE=coverage vendor/bin/phpunit"
       - if: matrix.php-versions == '7.4'
