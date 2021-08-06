@@ -7,9 +7,12 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class LayoutUsageTest extends TestCase
 {
+	use ProphecyTrait;
+
 	private $filter;
 
 	protected function setUp() : void
