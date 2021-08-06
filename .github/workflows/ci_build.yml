@@ -20,7 +20,7 @@ jobs:
         with:
           extensions: intl
           php-version: "${{ matrix.php-versions }}"
-          coverage: pcov
+          coverage: xdebug
       - name: Checkout
         uses: actions/checkout@v2
       - name: "Validate composer.json and composer.lock"
