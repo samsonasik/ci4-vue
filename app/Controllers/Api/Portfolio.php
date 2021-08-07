@@ -9,7 +9,7 @@ class Portfolio extends ResourceController
 	public function index()
 	{
 		$data    = include ROOTPATH . '/data/portfolio.php';
-		$keyword = (string) $this->request->getGet('keyword');
+		$keyword = $this->request->getGet('keyword');
 
 		if ($keyword !== '')
 		{
