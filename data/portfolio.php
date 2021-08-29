@@ -1,4 +1,5 @@
 <?php
+
 // data/portfolio.php
 return [
     [
@@ -18,5 +19,5 @@ return [
         'title' => 'Website C',
         'image' => 'https://via.placeholder.com/150/000000/FFFFFF?text=website%20C',
         'link'  => 'https://www.website-c.com',
-    ]
+    ],
 ];

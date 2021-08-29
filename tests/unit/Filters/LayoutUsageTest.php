@@ -9,56 +9,59 @@ use CodeIgniter\HTTP\ResponseInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 
-class LayoutUsageTest extends TestCase
+/**
+ * @internal
+ */
+final class LayoutUsageTest extends TestCase
 {
-	use ProphecyTrait;
+    use ProphecyTrait;
 
-	private $filter;
+    private $filter;
 
-	protected function setUp() : void
-	{
-		$this->filter = new LayoutUsage();
-	}
+    protected function setUp(): void
+    {
+        $this->filter = new LayoutUsage();
+    }
 
-	public function testBeforeOnIsAPI()
-	{
-		$request = $this->prophesize(IncomingRequest::class);
-		$request->hasHeader('Accept')->willReturn(true);
-		$request->header('Accept')->willReturn(new class {
-			public function getValue()
-			{
-				return 'application/json';
-			}
-		});
-		$request->isAJAX()->willReturn(false);
+    public function testBeforeOnIsAPI()
+    {
+        $request = $this->prophesize(IncomingRequest::class);
+        $request->hasHeader('Accept')->willReturn(true);
+        $request->header('Accept')->willReturn(new class() {
+            public function getValue()
+            {
+                return 'application/json';
+            }
+        });
+        $request->isAJAX()->willReturn(false);
 
-		$this->assertNull($this->filter->before($request->reveal()));
-	}
+        $this->assertNull($this->filter->before($request->reveal()));
+    }
 
-	public function testBeforeOnIsAjax()
-	{
-		$request = $this->prophesize(IncomingRequest::class);
-		$request->hasHeader('Accept')->willReturn(true);
-		$request->header('Accept')->willReturn(new class {
-			public function getValue()
-			{
-				return 'text/html';
-			}
-		});
-		$request->isAJAX()->willReturn(true);
+    public function testBeforeOnIsAjax()
+    {
+        $request = $this->prophesize(IncomingRequest::class);
+        $request->hasHeader('Accept')->willReturn(true);
+        $request->header('Accept')->willReturn(new class() {
+            public function getValue()
+            {
+                return 'text/html';
+            }
+        });
+        $request->isAJAX()->willReturn(true);
 
-		$this->assertNull($this->filter->before($request->reveal()));
-	}
+        $this->assertNull($this->filter->before($request->reveal()));
+    }
 
-	public function testAfter()
-	{
-		$layoutUsage = new LayoutUsage();
+    public function testAfter()
+    {
+        $layoutUsage = new LayoutUsage();
 
-		$this->assertNull(
-			$layoutUsage->after(
-				$this->prophesize(RequestInterface::class)->reveal(),
-				$this->prophesize(ResponseInterface::class)->reveal()
-			)
-		);
-	}
+        $this->assertNull(
+            $layoutUsage->after(
+                $this->prophesize(RequestInterface::class)->reveal(),
+                $this->prophesize(ResponseInterface::class)->reveal()
+            )
+        );
+    }
 }

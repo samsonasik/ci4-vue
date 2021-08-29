@@ -6,16 +6,19 @@ use App\Controllers\Portfolio;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\ControllerTestTrait;
 
-class PortfolioTest extends CIUnitTestCase
+/**
+ * @internal
+ */
+final class PortfolioTest extends CIUnitTestCase
 {
-	use ControllerTestTrait;
+    use ControllerTestTrait;
 
-	public function testIndex()
-	{
-		$result = $this->controller(Portfolio::class)
-						->execute('index');
+    public function testIndex()
+    {
+        $result = $this->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertTrue($result->isOK());
-		$this->assertTrue($result->see('Keyword'));
-	}
+        $this->assertTrue($result->isOK());
+        $this->assertTrue($result->see('Keyword'));
+    }
 }

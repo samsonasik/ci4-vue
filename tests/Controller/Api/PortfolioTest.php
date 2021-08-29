@@ -6,111 +6,120 @@ use App\Controllers\Api\Portfolio;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\ControllerTestTrait;
 
-class PortfolioTest extends CIUnitTestCase
+/**
+ * @internal
+ */
+final class PortfolioTest extends CIUnitTestCase
 {
-	use ControllerTestTrait;
+    use ControllerTestTrait;
 
-	public function testIndex()
-	{
-		$result = $this->controller(Portfolio::class)
-						->execute('index');
+    public function testIndex()
+    {
+        $result = $this->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertTrue($result->isOK());
-		$this->assertTrue($result->see('website'));
-	}
+        $this->assertTrue($result->isOK());
+        $this->assertTrue($result->see('website'));
+    }
 
-	public function provideTitle()
-	{
-		return [
-			['Website B'],
-			['site B'],
-		];
-	}
+    public function provideTitle()
+    {
+        return [
+            ['Website B'],
+            ['site B'],
+        ];
+    }
 
-	/**
-	 * @dataProvider provideTitle
-	 */
-	public function testIndexSearchPortfolioFoundByTitle($title)
-	{
-		$request = service('request');
-		$request->setMethod('get');
-		$request->setGlobal('get', [
-			'keyword' => $title,
-		]);
+    /**
+     * @dataProvider provideTitle
+     *
+     * @param mixed $title
+     */
+    public function testIndexSearchPortfolioFoundByTitle($title)
+    {
+        $request = service('request');
+        $request->setMethod('get');
+        $request->setGlobal('get', [
+            'keyword' => $title,
+        ]);
 
-		$result = $this->withRequest($request)
-					   ->controller(Portfolio::class)
-					   ->execute('index');
+        $result = $this->withRequest($request)
+            ->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertTrue($result->see($title));
-	}
+        $this->assertTrue($result->see($title));
+    }
 
-	public function provideLink()
-	{
-		return [
-			['https://www.website-b.com'],
-			['www.website-b.com'],
-		];
-	}
+    public function provideLink()
+    {
+        return [
+            ['https://www.website-b.com'],
+            ['www.website-b.com'],
+        ];
+    }
 
-	/**
-	 * @dataProvider provideLink
-	 */
-	public function testIndexSearchPortfolioFoundByLink($link)
-	{
-		$request = service('request');
-		$request->setMethod('get');
-		$request->setGlobal('get', [
-			'keyword' => $link,
-		]);
+    /**
+     * @dataProvider provideLink
+     *
+     * @param mixed $link
+     */
+    public function testIndexSearchPortfolioFoundByLink($link)
+    {
+        $request = service('request');
+        $request->setMethod('get');
+        $request->setGlobal('get', [
+            'keyword' => $link,
+        ]);
 
-		$result = $this->withRequest($request)
-					   ->controller(Portfolio::class)
-					   ->execute('index');
+        $result = $this->withRequest($request)
+            ->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertTrue($result->see($link));
-	}
+        $this->assertTrue($result->see($link));
+    }
 
-	public function provideEmptyKeyword()
-	{
-		return [
-			[null],
-			[''],
-		];
-	}
+    public function provideEmptyKeyword()
+    {
+        return [
+            [null],
+            [''],
+        ];
+    }
 
-	/**
-	 * @dataProvider provideEmptyKeyword
-	 */
-	public function testIndexSearchPortfolioEmptyKeywordShowAll($keyword)
-	{
-		$request = service('request');
-		$request->setMethod('get');
-		$request->setGlobal('get', [
-			'keyword' => $keyword,
-		]);
+    /**
+     * @dataProvider provideEmptyKeyword
+     *
+     * @param mixed $keyword
+     */
+    public function testIndexSearchPortfolioEmptyKeywordShowAll($keyword)
+    {
+        $request = service('request');
+        $request->setMethod('get');
+        $request->setGlobal('get', [
+            'keyword' => $keyword,
+        ]);
 
-		$result = $this->withRequest($request)
-					   ->controller(Portfolio::class)
-					   ->execute('index');
+        $result = $this->withRequest($request)
+            ->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertTrue($result->see('website-a'));
-		$this->assertTrue($result->see('website-b'));
-		$this->assertTrue($result->see('website-c'));
-	}
+        $this->assertTrue($result->see('website-a'));
+        $this->assertTrue($result->see('website-b'));
+        $this->assertTrue($result->see('website-c'));
+    }
 
-	public function testIndexSearchPortfolioNotFound()
-	{
-		$request = service('request');
-		$request->setMethod('get');
-		$request->setGlobal('get', [
-			'keyword' => 'website-abcdef',
-		]);
+    public function testIndexSearchPortfolioNotFound()
+    {
+        $request = service('request');
+        $request->setMethod('get');
+        $request->setGlobal('get', [
+            'keyword' => 'website-abcdef',
+        ]);
 
-		$result = $this->withRequest($request)
-					   ->controller(Portfolio::class)
-					   ->execute('index');
+        $result = $this->withRequest($request)
+            ->controller(Portfolio::class)
+            ->execute('index');
 
-		$this->assertFalse($result->see('website'));
-	}
+        $this->assertFalse($result->see('website'));
+    }
 }

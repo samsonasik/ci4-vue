@@ -1,12 +1,13 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 class Contact extends BaseController
 {
-	public function index()
-	{
-		return view('contact');
-	}
+    public function index()
+    {
+        return view('contact');
+    }
 
-	//--------------------------------------------------------------------
-
+    //--------------------------------------------------------------------
 }

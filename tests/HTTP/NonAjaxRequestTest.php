@@ -5,13 +5,16 @@ namespace Tests\HTTP;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\FeatureTestTrait;
 
-class NonAjaxRequestTest extends CIUnitTestCase
+/**
+ * @internal
+ */
+final class NonAjaxRequestTest extends CIUnitTestCase
 {
-	use FeatureTestTrait;
+    use FeatureTestTrait;
 
-	public function testRenderLayout()
-	{
-		$testResponse = $this->call('get', '/');
-		$this->assertMatchesRegularExpression('/<html>/', $testResponse->getBody());
-	}
+    public function testRenderLayout()
+    {
+        $testResponse = $this->call('get', '/');
+        $this->assertMatchesRegularExpression('/<html>/', $testResponse->getBody());
+    }
 }
