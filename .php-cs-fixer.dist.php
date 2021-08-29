@@ -9,6 +9,7 @@ $finder = Finder::create()
     ->in([
         __DIR__ . '/app',
         __DIR__ . '/data',
+        __DIR__ . '/tests',
         __DIR__ . '/public',
     ])
     ->exclude(['Views']);
