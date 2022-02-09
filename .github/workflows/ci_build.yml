@@ -33,7 +33,7 @@ jobs:
         run: "vendor/bin/rector process --dry-run"
       - name: "Run test suite"
         run: "XDEBUG_MODE=coverage vendor/bin/phpunit"
-      - if: matrix.php-versions == '7.4'
+      - if: matrix.php-versions == '8.0'
         name: Run mutation test
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
@@ -41,7 +41,7 @@ jobs:
         run: |
           composer require --dev infection/infection
           XDEBUG_MODE=coverage vendor/bin/infection
-      - if: matrix.php-versions == '7.4'
+      - if: matrix.php-versions == '8.0'
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
