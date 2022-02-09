@@ -2,7 +2,9 @@
 
 namespace Config;
 
+use BadMethodCallException;
 use CodeIgniter\Config\BaseConfig;
+use InvalidArgumentException;
 
 class Format extends BaseConfig
 {
@@ -66,13 +68,13 @@ class Format extends BaseConfig
     public function getFormatter(string $mime)
     {
         if (! array_key_exists($mime, $this->formatters)) {
-            throw new \InvalidArgumentException('No Formatter defined for mime type: ' . $mime);
+            throw new InvalidArgumentException('No Formatter defined for mime type: ' . $mime);
         }
 
         $class = $this->formatters[$mime];
 
         if (! class_exists($class)) {
-            throw new \BadMethodCallException($class . ' is not a valid Formatter.');
+            throw new BadMethodCallException($class . ' is not a valid Formatter.');
         }
 
         return new $class();

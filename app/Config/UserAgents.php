@@ -94,7 +94,6 @@ class UserAgents extends BaseConfig
         'Ubuntu'            => 'Ubuntu Web Browser',
         'Vivaldi'           => 'Vivaldi',
     ];
-
     public $mobiles = [
         // legacy array, old values commented out
         'mobileexplorer' => 'Mobile Explorer',

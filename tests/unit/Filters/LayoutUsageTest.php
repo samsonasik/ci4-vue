@@ -27,7 +27,7 @@ final class LayoutUsageTest extends TestCase
     {
         $request = $this->prophesize(IncomingRequest::class);
         $request->hasHeader('Accept')->willReturn(true);
-        $request->header('Accept')->willReturn(new class() {
+        $request->header('Accept')->willReturn(new class () {
             public function getValue()
             {
                 return 'application/json';
@@ -42,7 +42,7 @@ final class LayoutUsageTest extends TestCase
     {
         $request = $this->prophesize(IncomingRequest::class);
         $request->hasHeader('Accept')->willReturn(true);
-        $request->header('Accept')->willReturn(new class() {
+        $request->header('Accept')->willReturn(new class () {
             public function getValue()
             {
                 return 'text/html';
