@@ -13,7 +13,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.3",
+		"php": "^7.3 || ~8.0.0 | ~8.1.0",
 		"codeigniter4/framework": "^4.1"
 	},
 	"require-dev": {
