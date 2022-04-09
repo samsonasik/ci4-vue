@@ -31,9 +31,9 @@
 
     <?php $isDevelopment = ENVIRONMENT === 'development'; ?>
 
-    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
-    <script src="https://unpkg.com/vue-router@4.0.0-beta.10/dist/vue-router.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
-    <script src="https://unpkg.com/vuex@4.0.0-beta.4/dist/vuex.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
+    <script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.<?php echo ! $isDevelopment ? 'prod.' : '' ?>js"></script>
 
     <script src="<?php echo base_url($isDevelopment
             ? '/js/app.js'
