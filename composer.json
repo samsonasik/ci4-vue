@@ -22,7 +22,7 @@
 		"mikey179/vfsstream": "1.6.*",
 		"phpspec/prophecy-phpunit": "^2.0",
 		"phpunit/phpunit": "^9.0",
-		"rector/rector": "^0.12"
+		"rector/rector": "dev-main"
 	},
 	"config": {
 		"preferred-install": {

@@ -1,18 +1,20 @@
 <?php
 
-use Rector\Core\Configuration\Option;
-use Rector\Core\ValueObject\PhpVersion;
+use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(SetList::NAMING);
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_73);
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->sets([
+        SetList::NAMING,
+        LevelSetList::UP_TO_PHP_73,
+    ]);
 
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::PATHS, [__DIR__ . '/app/Controllers', __DIR__ . '/app/Filters', __DIR__ . '/tests']);
-
-    $parameters->set(Option::AUTO_IMPORT_NAMES, true);
-    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_73);
+    $rectorConfig->paths([
+        __DIR__ . '/app/Controllers',
+        __DIR__ . '/app/Filters',
+        __DIR__ . '/tests',
+        __DIR__ . '/rector.php',
+    ]);
+    $rectorConfig->importNames();
 };
