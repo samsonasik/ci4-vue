@@ -7,7 +7,7 @@ use Rector\Set\ValueObject\SetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
         SetList::NAMING,
-        LevelSetList::UP_TO_PHP_73,
+        LevelSetList::UP_TO_PHP_74,
     ]);
 
     $rectorConfig->paths([
