@@ -15,10 +15,10 @@ final class PortfolioTest extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->controller(Portfolio::class)
+        $testResponse = $this->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertTrue($result->isOK());
-        $this->assertTrue($result->see('Keyword'));
+        $this->assertTrue($testResponse->isOK());
+        $this->assertTrue($testResponse->see('Keyword'));
     }
 }

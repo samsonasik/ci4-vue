@@ -16,7 +16,7 @@ final class LayoutUsageTest extends TestCase
 {
     use ProphecyTrait;
 
-    private $filter;
+    private LayoutUsage $filter;
 
     protected function setUp(): void
     {

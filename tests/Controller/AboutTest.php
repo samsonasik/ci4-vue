@@ -15,10 +15,10 @@ final class AboutTest extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->controller(About::class)
+        $testResponse = $this->controller(About::class)
             ->execute('index');
 
-        $this->assertTrue($result->isOK());
-        $this->assertTrue($result->see('I\'m a web developer. My name is {{ $this.name }}'));
+        $this->assertTrue($testResponse->isOK());
+        $this->assertTrue($testResponse->see('I\'m a web developer. My name is {{ $this.name }}'));
     }
 }

@@ -15,10 +15,10 @@ final class HomeTest extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->controller(Home::class)
+        $testResponse = $this->controller(Home::class)
             ->execute('index');
 
-        $this->assertTrue($result->isOK());
-        $this->assertTrue($result->see('home'));
+        $this->assertTrue($testResponse->isOK());
+        $this->assertTrue($testResponse->see('home'));
     }
 }

@@ -15,11 +15,11 @@ final class PortfolioTest extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->controller(Portfolio::class)
+        $testResponse = $this->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertTrue($result->isOK());
-        $this->assertTrue($result->see('website'));
+        $this->assertTrue($testResponse->isOK());
+        $this->assertTrue($testResponse->see('website'));
     }
 
     public function provideTitle()
@@ -43,11 +43,11 @@ final class PortfolioTest extends CIUnitTestCase
             'keyword' => $title,
         ]);
 
-        $result = $this->withRequest($request)
+        $testResponse = $this->withRequest($request)
             ->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertTrue($result->see($title));
+        $this->assertTrue($testResponse->see($title));
     }
 
     public function provideLink()
@@ -71,11 +71,11 @@ final class PortfolioTest extends CIUnitTestCase
             'keyword' => $link,
         ]);
 
-        $result = $this->withRequest($request)
+        $testResponse = $this->withRequest($request)
             ->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertTrue($result->see($link));
+        $this->assertTrue($testResponse->see($link));
     }
 
     public function provideEmptyKeyword()
@@ -99,13 +99,13 @@ final class PortfolioTest extends CIUnitTestCase
             'keyword' => $keyword,
         ]);
 
-        $result = $this->withRequest($request)
+        $testResponse = $this->withRequest($request)
             ->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertTrue($result->see('website-a'));
-        $this->assertTrue($result->see('website-b'));
-        $this->assertTrue($result->see('website-c'));
+        $this->assertTrue($testResponse->see('website-a'));
+        $this->assertTrue($testResponse->see('website-b'));
+        $this->assertTrue($testResponse->see('website-c'));
     }
 
     public function testIndexSearchPortfolioNotFound()
@@ -116,10 +116,10 @@ final class PortfolioTest extends CIUnitTestCase
             'keyword' => 'website-abcdef',
         ]);
 
-        $result = $this->withRequest($request)
+        $testResponse = $this->withRequest($request)
             ->controller(Portfolio::class)
             ->execute('index');
 
-        $this->assertFalse($result->see('website'));
+        $this->assertFalse($testResponse->see('website'));
     }
 }

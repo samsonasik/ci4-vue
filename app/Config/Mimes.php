@@ -474,7 +474,7 @@ class Mimes
         ],
     ];
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Attempts to determine the best mime type for the given file extension.
@@ -492,7 +492,7 @@ class Mimes
         return is_array(static::$mimes[$extension]) ? static::$mimes[$extension][0] : static::$mimes[$extension];
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Attempts to determine the best file extension for a given mime type.
@@ -520,5 +520,5 @@ class Mimes
         return null;
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 }

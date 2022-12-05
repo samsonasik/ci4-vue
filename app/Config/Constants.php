@@ -1,8 +1,8 @@
 <?php
 
-//--------------------------------------------------------------------
+// --------------------------------------------------------------------
 // App Namespace
-//--------------------------------------------------------------------
+// --------------------------------------------------------------------
 // This defines the default Namespace that is used throughout
 // CodeIgniter to refer to the Application directory. Change
 // this constant to change the namespace that all application

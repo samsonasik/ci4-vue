@@ -15,10 +15,10 @@ final class ContactTest extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->controller(Contact::class)
+        $testResponse = $this->controller(Contact::class)
             ->execute('index');
 
-        $this->assertTrue($result->isOK());
-        $this->assertTrue($result->see('contact.'));
+        $this->assertTrue($testResponse->isOK());
+        $this->assertTrue($testResponse->see('contact.'));
     }
 }

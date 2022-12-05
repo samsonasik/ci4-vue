@@ -58,7 +58,7 @@ class Format extends BaseConfig
         'application/xml'  => 0,
         'text/xml'         => 0,
     ];
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * A Factory method to return the appropriate formatter for the given mime type.
@@ -80,5 +80,5 @@ class Format extends BaseConfig
         return new $class();
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 }
