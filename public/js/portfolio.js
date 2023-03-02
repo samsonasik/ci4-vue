@@ -11,6 +11,9 @@ let portfolio = createPage(
             }
         ]
     },
+    [],
+    {},
+    null,
     {
         search: function (e = null) {
             let keyword = e !== null
@@ -48,9 +51,17 @@ let portfolio = createPage(
             })();
         }
     },
-    function () {
-        this.$nextTick(() => this.search());
-    }
+    {
+        updated: function() {
+            this.$nextTick(() => this.search());
+        },
+        activated: function(){
+            console.log('Activated!')
+        },
+        deactivated: function(){
+            console.log('Deactivated!')
+        }
+    } 
 );
 
 export default portfolio;
