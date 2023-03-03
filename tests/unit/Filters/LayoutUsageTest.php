@@ -16,11 +16,11 @@ final class LayoutUsageTest extends TestCase
 {
     use ProphecyTrait;
 
-    private LayoutUsage $filter;
+    private LayoutUsage $layoutUsage;
 
     protected function setUp(): void
     {
-        $this->filter = new LayoutUsage();
+        $this->layoutUsage = new LayoutUsage();
     }
 
     public function testBeforeOnIsAPI()
@@ -35,7 +35,7 @@ final class LayoutUsageTest extends TestCase
         });
         $request->isAJAX()->willReturn(false);
 
-        $this->assertNull($this->filter->before($request->reveal()));
+        $this->assertNull($this->layoutUsage->before($request->reveal()));
     }
 
     public function testBeforeOnIsAjax()
@@ -50,7 +50,7 @@ final class LayoutUsageTest extends TestCase
         });
         $request->isAJAX()->willReturn(true);
 
-        $this->assertNull($this->filter->before($request->reveal()));
+        $this->assertNull($this->layoutUsage->before($request->reveal()));
     }
 
     public function testAfter()
