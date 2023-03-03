@@ -51,12 +51,6 @@ let portfolio = createPage(
     {
         updated: function() {
             this.$nextTick(() => this.search());
-        },
-        activated: function(){
-            console.log('Activated!')
-        },
-        deactivated: function(){
-            console.log('Deactivated!')
         }
     },
 );
