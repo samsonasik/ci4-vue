@@ -48,9 +48,11 @@ let portfolio = createPage(
             })();
         }
     },
-    function () {
-        this.$nextTick(() => this.search());
-    }
+    {
+        updated: function() {
+            this.$nextTick(() => this.search());
+        }
+    },
 );
 
 export default portfolio;

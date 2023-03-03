@@ -1,6 +1,6 @@
 const { h, compile } = Vue;
 
-const createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.defineComponent({
+const createPage = (name, data = {}, methods = {}, hooks = {}, inject = [], computed = {}, provide = null) => Vue.defineComponent({
     name: 'page-' + name,
     data: () => Object.assign(
         {
@@ -8,6 +8,9 @@ const createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.de
         },
         data
     ),
+    inject: inject,
+    computed: computed,
+    provide: provide,
     methods: methods,
     mounted () {
         (new Promise( (resolve) => {
@@ -26,7 +29,17 @@ const createPage = (name, data = {}, methods = {}, updated = () => {}) => Vue.de
         const $this = this;
         return h(compile(`${this.content}`), { $this });
     },
-    updated: updated
+    beforeCreate: hooks.beforeCreate ? hooks.beforeCreate : () => {},
+    created: hooks.created ? hooks.created : () => {},
+    beforeMount: hooks.beforeMount ? hooks.beforeMount : () => {},
+    beforeUpdate: hooks.beforeUpdate ? hooks.beforeUpdate : () => {},
+    updated: hooks.updated ? hooks.updated : () => {},
+    beforeUnmount: hooks.beforeUnmount ? hooks.beforeUnmount : () => {},
+    unmounted: hooks.unmounted ? hooks.unmounted : () => {},
+    renderTracked : hooks.renderTracked ? hooks.renderTracked  : () => {},
+    renderTriggered: hooks.renderTriggered ? hooks.renderTriggered : () => {},
+    activated: hooks.activated ? hooks.activated : () => {},
+    deactivated: hooks.deactivated ? hooks.deactivated : () => {},
 });
 
 export default createPage;
