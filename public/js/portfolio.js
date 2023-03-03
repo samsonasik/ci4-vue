@@ -59,9 +59,6 @@ let portfolio = createPage(
             console.log('Deactivated!')
         }
     },
-    [],
-    {},
-    null,
 );
 
 export default portfolio;
