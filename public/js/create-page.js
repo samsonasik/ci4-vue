@@ -1,6 +1,6 @@
 const { h, compile } = Vue;
 
-const createPage = (name, data = {}, inject = [], computed = {}, provide = null, methods = {}, hooks = {}) => Vue.defineComponent({
+const createPage = (name, data = {}, methods = {}, hooks = {}, inject = [], computed = {}, provide = null) => Vue.defineComponent({
     name: 'page-' + name,
     data: () => Object.assign(
         {
@@ -36,7 +36,7 @@ const createPage = (name, data = {}, inject = [], computed = {}, provide = null,
     updated: hooks.updated ? hooks.updated : () => {},
     beforeUnmount: hooks.beforeUnmount ? hooks.beforeUnmount : () => {},
     unmounted: hooks.unmounted ? hooks.unmounted : () => {},
-    renderTracked : hooks.renderTracked  ? hooks.renderTracked  : () => {},
+    renderTracked : hooks.renderTracked ? hooks.renderTracked  : () => {},
     renderTriggered: hooks.renderTriggered ? hooks.renderTriggered : () => {},
     activated: hooks.activated ? hooks.activated : () => {},
     deactivated: hooks.deactivated ? hooks.deactivated : () => {},

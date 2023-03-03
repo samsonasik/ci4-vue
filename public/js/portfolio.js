@@ -11,9 +11,6 @@ let portfolio = createPage(
             }
         ]
     },
-    [],
-    {},
-    null,
     {
         search: function (e = null) {
             let keyword = e !== null
@@ -61,7 +58,10 @@ let portfolio = createPage(
         deactivated: function(){
             console.log('Deactivated!')
         }
-    } 
+    },
+    [],
+    {},
+    null,
 );
 
 export default portfolio;
