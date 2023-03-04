@@ -2,7 +2,10 @@
 
 namespace Config;
 
-class View extends \CodeIgniter\Config\View
+use CodeIgniter\Config\View as BaseView;
+use CodeIgniter\View\ViewDecoratorInterface;
+
+class View extends BaseView
 {
     /**
      * When false, the view method will clear the data between each
@@ -11,6 +14,8 @@ class View extends \CodeIgniter\Config\View
      * to each view. You might prefer to have the data stick around between
      * calls so that it is available to all views. If that is the case,
      * set $saveData to true.
+     *
+     * @var bool
      */
     public $saveData = true;
 
@@ -24,6 +29,8 @@ class View extends \CodeIgniter\Config\View
      * Examples:
      *  { title|esc(js) }
      *  { created_on|date(Y-m-d)|esc(attr) }
+     *
+     * @var array
      */
     public $filters = [];
 
@@ -31,6 +38,19 @@ class View extends \CodeIgniter\Config\View
      * Parser Plugins provide a way to extend the functionality provided
      * by the core Parser by creating aliases that will be replaced with
      * any callable. Can be single or tag pair.
+     *
+     * @var array
      */
     public $plugins = [];
+
+    /**
+     * View Decorators are class methods that will be run in sequence to
+     * have a chance to alter the generated output just prior to caching
+     * the results.
+     *
+     * All classes must implement CodeIgniter\View\ViewDecoratorInterface
+     *
+     * @var class-string<ViewDecoratorInterface>[]
+     */
+    public array $decorators = [];
 }

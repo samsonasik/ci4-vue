@@ -2,27 +2,26 @@
 
 namespace Config;
 
-/*
-| -------------------------------------------------------------------
-| MIME TYPES
-| -------------------------------------------------------------------
-| This file contains an array of mime types.  It is used by the
-| Upload class to help identify allowed file types.
-|
-| When more than one variation for an extension exist (like jpg, jpeg, etc)
-| the most common one should be first in the array to aid the guess*
-| methods. The same applies when more than one mime-type exists for a
-| single extension.
-|
-*/
+/**
+ * Mimes
+ *
+ * This file contains an array of mime types.  It is used by the
+ * Upload class to help identify allowed file types.
+ *
+ * When more than one variation for an extension exist (like jpg, jpeg, etc)
+ * the most common one should be first in the array to aid the guess*
+ * methods. The same applies when more than one mime-type exists for a
+ * single extension.
+ *
+ * When working with mime types, please make sure you have the ´fileinfo´
+ * extension enabled to reliably detect the media types.
+ */
 class Mimes
 {
     /**
      * Map of extensions to mime types.
-     *
-     * @var array
      */
-    public static $mimes = [
+    public static array $mimes = [
         'hqx' => [
             'application/mac-binhex40',
             'application/mac-binhex',
@@ -34,7 +33,6 @@ class Mimes
             'text/csv',
             'text/x-comma-separated-values',
             'text/comma-separated-values',
-            'application/octet-stream',
             'application/vnd.ms-excel',
             'application/x-csv',
             'text/x-csv',
@@ -55,6 +53,8 @@ class Mimes
         'lzh' => 'application/octet-stream',
         'exe' => [
             'application/octet-stream',
+            'application/vnd.microsoft.portable-executable',
+            'application/x-dosexec',
             'application/x-msdownload',
         ],
         'class' => 'application/octet-stream',
@@ -70,7 +70,6 @@ class Mimes
             'application/pdf',
             'application/force-download',
             'application/x-download',
-            'binary/octet-stream',
         ],
         'ai' => [
             'application/pdf',
@@ -103,8 +102,6 @@ class Mimes
         ],
         'pptx' => [
             'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-            'application/x-zip',
-            'application/zip',
         ],
         'wbxml' => 'application/wbxml',
         'wmlc'  => 'application/wmlc',
@@ -149,6 +146,7 @@ class Mimes
             'multipart/x-zip',
         ],
         'rar' => [
+            'application/vnd.rar',
             'application/x-rar',
             'application/rar',
             'application/x-rar-compressed',
@@ -260,6 +258,7 @@ class Mimes
             'image/png',
             'image/x-png',
         ],
+        'webp' => 'image/webp',
         'tif'  => 'image/tiff',
         'tiff' => 'image/tiff',
         'css'  => [
@@ -334,6 +333,8 @@ class Mimes
             'application/msword',
             'application/x-zip',
         ],
+        'xlsb' => 'application/vnd.ms-excel.sheet.binary.macroEnabled.12',
+        'xlsm' => 'application/vnd.ms-excel.sheet.macroEnabled.12',
         'word' => [
             'application/msword',
             'application/octet-stream',
@@ -455,6 +456,7 @@ class Mimes
         ],
         'svg' => [
             'image/svg+xml',
+            'image/svg',
             'application/xml',
             'text/xml',
         ],
@@ -472,9 +474,12 @@ class Mimes
             'image/x-ico',
             'image/vnd.microsoft.icon',
         ],
+        'stl' => [
+            'application/sla',
+            'application/vnd.ms-pki.stl',
+            'application/x-navistyle',
+        ],
     ];
-
-    // --------------------------------------------------------------------
 
     /**
      * Attempts to determine the best mime type for the given file extension.
@@ -492,33 +497,36 @@ class Mimes
         return is_array(static::$mimes[$extension]) ? static::$mimes[$extension][0] : static::$mimes[$extension];
     }
 
-    // --------------------------------------------------------------------
-
     /**
      * Attempts to determine the best file extension for a given mime type.
      *
-     * @param string $proposed_extension - default extension (in case there is more than one with the same mime type)
+     * @param string|null $proposedExtension - default extension (in case there is more than one with the same mime type)
      *
      * @return string|null The extension determined, or null if unable to match.
      */
-    public static function guessExtensionFromType(string $type, ?string $proposed_extension = null)
+    public static function guessExtensionFromType(string $type, ?string $proposedExtension = null)
     {
         $type = trim(strtolower($type), '. ');
 
-        $proposed_extension = trim(strtolower($proposed_extension));
+        $proposedExtension = trim(strtolower($proposedExtension ?? ''));
 
-        if (null !== $proposed_extension && array_key_exists($proposed_extension, static::$mimes) && in_array($type, is_string(static::$mimes[$proposed_extension]) ? [static::$mimes[$proposed_extension]] : static::$mimes[$proposed_extension], true)) {
-            return $proposed_extension;
+        if (
+            $proposedExtension !== ''
+            && array_key_exists($proposedExtension, static::$mimes)
+            && in_array($type, (array) static::$mimes[$proposedExtension], true)
+        ) {
+            // The detected mime type matches with the proposed extension.
+            return $proposedExtension;
         }
 
+        // Reverse check the mime type list if no extension was proposed.
+        // This search is order sensitive!
         foreach (static::$mimes as $ext => $types) {
-            if ((is_string($types) && $types === $type) || (is_array($types) && in_array($type, $types, true))) {
+            if (in_array($type, (array) $types, true)) {
                 return $ext;
             }
         }
 
         return null;
     }
-
-    // --------------------------------------------------------------------
 }
