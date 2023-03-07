@@ -1,9 +1,8 @@
 {
 	"name": "samsonasik/ci4-vue",
-	"type": "project",
 	"description": "CodeIgniter4 starter app with Vue.js Integration",
-	"homepage": "https://codeigniter.com",
 	"license": "MIT",
+	"type": "project",
 	"authors": [
 		{
 			"name": "Abdul Malik Ikhsan",
@@ -12,6 +11,12 @@
 			"role": "Developer"
 		}
 	],
+	"homepage": "https://codeigniter.com",
+	"support": {
+		"forum": "http://forum.codeigniter.com/",
+		"source": "https://github.com/codeigniter4/CodeIgniter4",
+		"slack": "https://codeigniterchat.slack.com"
+	},
 	"require": {
 		"php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
 		"codeigniter4/framework": "^4.3.2"
@@ -23,18 +28,6 @@
 		"phpspec/prophecy-phpunit": "^2.0",
 		"phpunit/phpunit": "^9.0",
 		"rector/rector": "^0.15.0"
-	},
-	"config": {
-		"preferred-install": {
-			"*": "dist"
-		},
-		"sort-packages": true,
-		"allow-plugins": {
-			"infection/extension-installer": true
-		},
-		"platform": {
-            "php": "7.4.99"
-    	}
 	},
 	"autoload": {
 		"psr-4": {
@@ -48,6 +41,18 @@
 			"Tests\\Support\\": "tests/_support"
 		}
 	},
+	"config": {
+		"allow-plugins": {
+			"infection/extension-installer": true
+		},
+		"platform": {
+			"php": "7.4.99"
+		},
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
+	},
 	"scripts": {
 		"post-update-cmd": [
 			"@composer dump-autoload"
@@ -55,10 +60,5 @@
 		"cs-check": "php-cs-fixer fix --dry-run --diff",
 		"cs-fix": "php-cs-fixer fix",
 		"test": "phpunit"
-	},
-	"support": {
-		"forum": "http://forum.codeigniter.com/",
-		"source": "https://github.com/codeigniter4/CodeIgniter4",
-		"slack": "https://codeigniterchat.slack.com"
 	}
 }
