@@ -22,7 +22,7 @@ final class PortfolioTest extends CIUnitTestCase
         $this->assertTrue($testResponse->see('website'));
     }
 
-    public function provideTitle()
+    public static function provideIndexSearchPortfolioFoundByTitle(): iterable
     {
         return [
             ['Website B'],
@@ -31,7 +31,7 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideTitle
+     * @dataProvider provideIndexSearchPortfolioFoundByTitle
      *
      * @param mixed $title
      */
@@ -50,7 +50,7 @@ final class PortfolioTest extends CIUnitTestCase
         $this->assertTrue($testResponse->see($title));
     }
 
-    public function provideLink()
+    public static function provideIndexSearchPortfolioFoundByLink(): iterable
     {
         return [
             ['https://www.website-b.com'],
@@ -59,7 +59,7 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideLink
+     * @dataProvider provideIndexSearchPortfolioFoundByLink
      *
      * @param mixed $link
      */
@@ -78,7 +78,7 @@ final class PortfolioTest extends CIUnitTestCase
         $this->assertTrue($testResponse->see($link));
     }
 
-    public function provideEmptyKeyword()
+    public static function provideIndexSearchPortfolioEmptyKeywordShowAll(): iterable
     {
         return [
             [null],
@@ -87,7 +87,7 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideEmptyKeyword
+     * @dataProvider provideIndexSearchPortfolioEmptyKeywordShowAll
      *
      * @param mixed $keyword
      */
