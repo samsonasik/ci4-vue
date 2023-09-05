@@ -14,8 +14,8 @@ class Portfolio extends ResourceController
         $keyword = (string) $this->request->getGet('keyword');
 
         if ($keyword !== '') {
-            $data = array_filter($data, static fn ($value) => stripos($value['title'], $keyword) !== false
-            || stripos($value['link'], $keyword) !== false);
+            $data = array_filter($data, static fn ($value) => stripos($value['title'], (string) $keyword) !== false
+            || stripos($value['link'], (string) $keyword) !== false);
         }
 
         return $this->respond($data);
