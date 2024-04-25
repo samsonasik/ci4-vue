@@ -18,8 +18,8 @@
 		"slack": "https://codeigniterchat.slack.com"
 	},
 	"require": {
-		"php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
-		"codeigniter4/framework": "^4.4.1"
+		"php": "~8.1.0 || ~8.2.0",
+		"codeigniter4/framework": "^4.5.1"
 	},
 	"require-dev": {
 		"codeigniter/coding-standard": "^1.0",
@@ -46,7 +46,7 @@
 			"infection/extension-installer": true
 		},
 		"platform": {
-			"php": "7.4.99"
+			"php": "8.1.99"
 		},
 		"preferred-install": {
 			"*": "dist"
