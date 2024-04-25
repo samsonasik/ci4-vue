@@ -50,7 +50,7 @@ class View extends BaseView
      *
      * All classes must implement CodeIgniter\View\ViewDecoratorInterface
      *
-     * @var class-string<ViewDecoratorInterface>[]
+     * @var list<class-string<ViewDecoratorInterface>>
      */
     public array $decorators = [];
 }

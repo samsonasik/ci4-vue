@@ -72,7 +72,7 @@ class Modules extends BaseModules
      *
      * If it is not listed, only the base application elements will be used.
      *
-     * @var string[]
+     * @var list<string>
      */
     public $aliases = [
         'events',

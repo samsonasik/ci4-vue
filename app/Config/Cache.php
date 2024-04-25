@@ -61,7 +61,7 @@ class Cache extends BaseConfig
      *    ['q'] = Enabled, but only take into account the specified list
      *            of query parameters.
      *
-     * @var bool|string[]
+     * @var bool|list<string>
      */
     public $cacheQueryString = false;
 
@@ -158,7 +158,7 @@ class Cache extends BaseConfig
      * This is an array of cache engine alias' and class names. Only engines
      * that are listed here are allowed to be used.
      *
-     * @var array<string, string>
+     * @var         array<string, string>
      * @phpstan-var array<string, class-string<CacheInterface>>
      */
     public array $validHandlers = [

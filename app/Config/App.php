@@ -27,7 +27,7 @@ class App extends BaseConfig
      *      'http://accounts.example.com/':
      *          ['media.example.com', 'accounts.example.com']
      *
-     * @var string[]
+     * @var         list<string>
      * @phpstan-var list<string>
      */
     public array $allowedHostnames = [];
@@ -95,7 +95,7 @@ class App extends BaseConfig
      *
      * IncomingRequest::setLocale() also uses this list.
      *
-     * @var string[]
+     * @var list<string>
      */
     public array $supportedLocales = ['en'];
 
