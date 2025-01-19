@@ -60,8 +60,8 @@ final class LayoutUsageTest extends TestCase
         $this->assertNull(
             $layoutUsage->after(
                 $this->prophesize(RequestInterface::class)->reveal(),
-                $this->prophesize(ResponseInterface::class)->reveal()
-            )
+                $this->prophesize(ResponseInterface::class)->reveal(),
+            ),
         );
     }
 }

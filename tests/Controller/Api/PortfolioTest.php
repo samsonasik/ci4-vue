@@ -31,10 +31,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioFoundByTitle
-     *
      * @param mixed $title
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideIndexSearchPortfolioFoundByTitle')]
     public function testIndexSearchPortfolioFoundByTitle($title)
     {
         $request = service('request');
@@ -59,10 +58,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioFoundByLink
-     *
      * @param mixed $link
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideIndexSearchPortfolioFoundByLink')]
     public function testIndexSearchPortfolioFoundByLink($link)
     {
         $request = service('request');
@@ -87,10 +85,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioEmptyKeywordShowAll
-     *
      * @param mixed $keyword
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideIndexSearchPortfolioEmptyKeywordShowAll')]
     public function testIndexSearchPortfolioEmptyKeywordShowAll($keyword)
     {
         $request = service('request');
