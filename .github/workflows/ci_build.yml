@@ -41,7 +41,7 @@ jobs:
         run: |
           composer require --dev infection/infection
           XDEBUG_MODE=coverage vendor/bin/infection
-      - if: matrix.php-versions == '8.0' && github.event.pull_request.head.repo.full_name == 'samsonasik/ci4-vue'
+      - if: matrix.php-versions == '8.2' && github.event.pull_request.head.repo.full_name == 'samsonasik/ci4-vue'
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
