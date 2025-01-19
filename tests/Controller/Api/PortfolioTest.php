@@ -5,6 +5,7 @@ namespace Tests\Controller\Api;
 use App\Controllers\Api\Portfolio;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\ControllerTestTrait;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @internal
@@ -31,10 +32,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioFoundByTitle
-     *
      * @param mixed $title
      */
+    #[DataProvider('provideIndexSearchPortfolioFoundByTitle')]
     public function testIndexSearchPortfolioFoundByTitle($title)
     {
         $request = service('request');
@@ -59,10 +59,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioFoundByLink
-     *
      * @param mixed $link
      */
+    #[DataProvider('provideIndexSearchPortfolioFoundByLink')]
     public function testIndexSearchPortfolioFoundByLink($link)
     {
         $request = service('request');
@@ -87,10 +86,9 @@ final class PortfolioTest extends CIUnitTestCase
     }
 
     /**
-     * @dataProvider provideIndexSearchPortfolioEmptyKeywordShowAll
-     *
      * @param mixed $keyword
      */
+    #[DataProvider('provideIndexSearchPortfolioEmptyKeywordShowAll')]
     public function testIndexSearchPortfolioEmptyKeywordShowAll($keyword)
     {
         $request = service('request');

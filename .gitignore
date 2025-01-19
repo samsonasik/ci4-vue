@@ -127,3 +127,5 @@ nb-configuration.xml
 infection.log
 
 .php-cs-fixer.cache
+
+/.phpunit.cache

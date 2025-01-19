@@ -25,32 +25,32 @@ final class LayoutUsageTest extends TestCase
 
     public function testBeforeOnIsAPI()
     {
-        $request = $this->prophesize(IncomingRequest::class);
-        $request->hasHeader('Accept')->willReturn(true);
-        $request->header('Accept')->willReturn(new class () {
+        $objectProphecy = $this->prophesize(IncomingRequest::class);
+        $objectProphecy->hasHeader('Accept')->willReturn(true);
+        $objectProphecy->header('Accept')->willReturn(new class () {
             public function getValue()
             {
                 return 'application/json';
             }
         });
-        $request->isAJAX()->willReturn(false);
+        $objectProphecy->isAJAX()->willReturn(false);
 
-        $this->assertNull($this->layoutUsage->before($request->reveal()));
+        $this->assertNull($this->layoutUsage->before($objectProphecy->reveal()));
     }
 
     public function testBeforeOnIsAjax()
     {
-        $request = $this->prophesize(IncomingRequest::class);
-        $request->hasHeader('Accept')->willReturn(true);
-        $request->header('Accept')->willReturn(new class () {
+        $objectProphecy = $this->prophesize(IncomingRequest::class);
+        $objectProphecy->hasHeader('Accept')->willReturn(true);
+        $objectProphecy->header('Accept')->willReturn(new class () {
             public function getValue()
             {
                 return 'text/html';
             }
         });
-        $request->isAJAX()->willReturn(true);
+        $objectProphecy->isAJAX()->willReturn(true);
 
-        $this->assertNull($this->layoutUsage->before($request->reveal()));
+        $this->assertNull($this->layoutUsage->before($objectProphecy->reveal()));
     }
 
     public function testAfter()
@@ -60,8 +60,8 @@ final class LayoutUsageTest extends TestCase
         $this->assertNull(
             $layoutUsage->after(
                 $this->prophesize(RequestInterface::class)->reveal(),
-                $this->prophesize(ResponseInterface::class)->reveal()
-            )
+                $this->prophesize(ResponseInterface::class)->reveal(),
+            ),
         );
     }
 }
