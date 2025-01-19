@@ -27,7 +27,7 @@
 		"mikey179/vfsstream": "1.6.*",
 		"phpspec/prophecy-phpunit": "^2.0",
 		"phpunit/phpunit": "^9.0",
-		"rector/rector": "^0.15.0",
+		"rector/rector": "^2.0",
 		"tatter/patches": "^2.1"
 	},
 	"autoload": {
