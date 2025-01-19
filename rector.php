@@ -11,4 +11,5 @@ return RectorConfig::configure()
     ->withRootFiles()
     ->withPreparedSets(naming: true)
     ->withPhpSets(php82: true)
+    ->withComposerBased(phpunit: true)
     ->withImportNames();
