@@ -18,8 +18,8 @@
 		"slack": "https://codeigniterchat.slack.com"
 	},
 	"require": {
-		"php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-		"codeigniter4/framework": "^4.5.1"
+		"php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+		"codeigniter4/framework": "^4.6"
 	},
 	"require-dev": {
 		"codeigniter/coding-standard": "^1.0",
@@ -27,7 +27,8 @@
 		"mikey179/vfsstream": "1.6.*",
 		"phpspec/prophecy-phpunit": "^2.0",
 		"phpunit/phpunit": "^9.0",
-		"rector/rector": "^0.15.0"
+		"rector/rector": "^0.15.0",
+		"tatter/patches": "^2.1"
 	},
 	"autoload": {
 		"psr-4": {
@@ -46,7 +47,7 @@
 			"infection/extension-installer": true
 		},
 		"platform": {
-			"php": "8.1.99"
+			"php": "8.2.99"
 		},
 		"preferred-install": {
 			"*": "dist"
